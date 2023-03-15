@@ -1,0 +1,178 @@
+export type MemoryData = {
+  id: string;
+  title: string;
+  image: string;
+  selected: boolean;
+  match: boolean;
+};
+
+export const memoryData: MemoryData[] = [
+  {
+    id: "m1",
+    title: "beach",
+    image: "/images/card-images/beach.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m2",
+    title: "bird",
+    image: "/images/card-images/bird.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m3",
+    title: "books",
+    image: "/images/card-images/books.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m4",
+    title: "car",
+    image: "/images/card-images/car.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m5",
+    title: "city",
+    image: "/images/card-images/city.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m6",
+    title: "code",
+    image: "/images/card-images/code.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m7",
+    title: "desert",
+    image: "/images/card-images/desert.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m8",
+    title: "earth",
+    image: "/images/card-images/earth.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m9",
+    title: "elephant",
+    image: "/images/card-images/elephant.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m10",
+    title: "fish",
+    image: "/images/card-images/fish.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m11",
+    title: "football",
+    image: "/images/card-images/football.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m12",
+    title: "forest",
+    image: "/images/card-images/forest.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m13",
+    title: "friends",
+    image: "/images/card-images/friends.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m14",
+    title: "fruits",
+    image: "/images/card-images/fruits.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m15",
+    title: "gaming",
+    image: "/images/card-images/gaming.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m16",
+    title: "money",
+    image: "/images/card-images/money.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m17",
+    title: "kiwi",
+    image: "/images/card-images/kiwi.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m18",
+    title: "moon",
+    image: "/images/card-images/moon.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m19",
+    title: "party",
+    image: "/images/card-images/party.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m20",
+    title: "plane",
+    image: "/images/card-images/plane.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m21",
+    title: "pyramide",
+    image: "/images/card-images/pyramide.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m22",
+    title: "river",
+    image: "/images/card-images/river.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m23",
+    title: "snow",
+    image: "/images/card-images/snow.jpg",
+    selected: false,
+    match: false,
+  },
+  {
+    id: "m24",
+    title: "tiger",
+    image: "/images/card-images/tiger.jpg",
+    selected: false,
+    match: false,
+  },
+];

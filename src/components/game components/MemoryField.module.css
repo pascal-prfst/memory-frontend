@@ -1,0 +1,16 @@
+.playfield_grid {
+  display: grid;
+  gap: 1rem;
+  padding: 1rem;
+  justify-content: center;
+  align-items: center;
+  place-items: center;
+  grid-template-columns: auto auto auto auto auto auto;
+}
+
+@media (max-width: 800px) {
+  .playfield_grid {
+    grid-template-columns: auto auto auto;
+    gap: 0.7rem;
+  }
+}

@@ -1,0 +1,31 @@
+@import url("https://fonts.googleapis.com/css2?family=Fira+Sans:wght@400;500;700&family=Rammetto+One&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Fira Sans", sans-serif;
+}
+
+html {
+  font-size: 15px;
+  height: 100%;
+}
+
+:root {
+  --white: #fff;
+  --rammetto: "Rammetto One";
+  --blue: rgb(43, 88, 118);
+}
+
+body {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background: rgb(43, 88, 118);
+  background: linear-gradient(0deg, rgba(43, 88, 118, 1) 0%, rgba(78, 67, 118, 1) 100%);
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}

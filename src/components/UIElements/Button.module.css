@@ -1,0 +1,49 @@
+.button {
+  border: 3px solid var(--white);
+  color: var(--white);
+  padding: 0.75rem;
+  min-width: 12.5rem;
+  background-color: transparent;
+  background-repeat: no-repeat;
+  font-size: 1.25rem;
+  font-weight: 500;
+  transition: all 250ms;
+}
+
+.link {
+  text-decoration: none;
+  text-align: center;
+}
+
+.inverted {
+  color: var(--blue);
+  border: 3px solid var(--blue);
+}
+
+.button:focus {
+  outline: none;
+}
+
+.button:hover {
+  cursor: pointer;
+  color: var(--blue);
+  background-color: var(--white);
+}
+
+.button.inverted:hover {
+  cursor: pointer;
+  color: var(--white);
+  background-color: var(--blue);
+}
+
+@media (max-width: 640px) {
+  .button {
+    font-size: 1rem;
+    min-width: 10rem;
+    border: 2px solid var(--white);
+  }
+  .inverted {
+    color: var(--blue);
+    border: 3px solid var(--blue);
+  }
+}

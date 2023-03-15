@@ -1,0 +1,33 @@
+.gamepage {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 100%;
+  position: relative;
+}
+
+.gamestats_container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 3rem;
+}
+
+.actions_container {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 3rem;
+}
+
+@media (max-width: 640px) {
+  .gamestats_container {
+    margin-top: 2rem;
+  }
+  .actions_container {
+    margin-bottom: 2rem;
+  }
+}

@@ -40,6 +40,9 @@ function Modal({ closeModal, time, fieldSize }: ModalProps) {
       const response = await fetch("https://memory-backend-phi.vercel.app/api/score", {
         method: "POST",
         body: JSON.stringify(scoreData),
+        headers: {
+          "Content-Type": "application/json",
+        },
       });
     } catch (err) {
       console.log(err);

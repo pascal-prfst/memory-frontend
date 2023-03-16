@@ -20,14 +20,14 @@ function Modal({ closeModal, time, fieldSize }: ModalProps) {
   const [succesfulSubmit, setSuccesfulSubmit] = useState(false);
 
   useEffect(() => {
-    if (localStorage.getItem(`personal-record-${fieldSize}`) === null) {
-      localStorage.setItem(`personal-record-${fieldSize}`, JSON.stringify(time));
+    if (localStorage.getItem(`personal-record-${fieldSize}-final`) === null) {
+      localStorage.setItem(`personal-record-${fieldSize}-final`, JSON.stringify(time));
       setNewRecord(true);
       setPersonalRecord(time);
     } else {
-      const pr = JSON.parse(localStorage.getItem(`personal-record-${fieldSize}`) || "");
+      const pr = JSON.parse(localStorage.getItem(`personal-record-${fieldSize}-final`) || "");
       if (time !== 0 && time < pr) {
-        localStorage.setItem(`personal-record-${fieldSize}`, JSON.stringify(time));
+        localStorage.setItem(`personal-record-${fieldSize}-final`, JSON.stringify(time));
         setNewRecord(true);
         setPersonalRecord(time);
       } else if (time > pr) {

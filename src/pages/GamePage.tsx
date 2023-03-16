@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { createPortal } from "react-dom";
+import { useNavigate } from "react-router";
 
 import classes from "./GamePage.module.css";
 import MemoryField from "../components/game components/MemoryField";
@@ -15,6 +16,8 @@ function GamePage() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [time, setTimer] = useState(0);
   const [fieldSize, setFieldSize] = useState("");
+
+  const navigate = useNavigate();
 
   // detect window innerWidth and change fieldSize
   useEffect(() => {
@@ -41,6 +44,9 @@ function GamePage() {
   }, [gameIsActive, time]);
 
   function startOrStopGame() {
+    if (gameIsActive) {
+      navigate(0);
+    }
     setGameIsActive(prev => !prev);
     setTimer(0);
   }
@@ -58,6 +64,7 @@ function GamePage() {
   function closeModalHandler() {
     setIsModalOpen(false);
     setTimer(0);
+    navigate(0);
   }
 
   function changeToSmallField() {

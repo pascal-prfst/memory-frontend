@@ -22,8 +22,8 @@ function MemoryField({ fieldSize, checkForFinishedGame, active }: FieldProps) {
 
   // after game start memory field will be created
   useEffect(() => {
-    const memoryCards = createGameField(fieldSize);
-    setMemoryCards(memoryCards);
+    const memoryCardsFetched = createGameField(fieldSize);
+    setMemoryCards(memoryCardsFetched);
   }, [fieldSize]);
 
   useEffect(() => {

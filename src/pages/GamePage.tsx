@@ -18,14 +18,16 @@ function GamePage() {
 
   // detect window innerWidth and change fieldSize
   useEffect(() => {
-    window.addEventListener("resize", () => {
-      setScreenWidth(window.innerWidth);
-    });
+    if (!gameIsActive) {
+      window.addEventListener("resize", () => {
+        setScreenWidth(window.innerWidth);
+      });
 
-    if (screenWidth < 800) {
-      setFieldSize("small");
-    } else if (screenWidth > 801) {
-      setFieldSize("big");
+      if (screenWidth < 800) {
+        setFieldSize("small");
+      } else if (screenWidth > 801) {
+        setFieldSize("big");
+      }
     }
   }, [screenWidth]);
 
@@ -84,7 +86,11 @@ function GamePage() {
         <div className={classes.gamestats_container}>
           <GameTimer time={time} />
         </div>
-        <MemoryField fieldSize={fieldSize} checkForFinishedGame={checkForFinishedGame} />
+        <MemoryField
+          fieldSize={fieldSize}
+          checkForFinishedGame={checkForFinishedGame}
+          active={gameIsActive}
+        />
         <div className={classes.actions_container}>
           <Button onClick={startOrStopGame}>{!gameIsActive ? "STARTE SPIEL" : "ABBRECHEN"}</Button>
           {!gameIsActive && (

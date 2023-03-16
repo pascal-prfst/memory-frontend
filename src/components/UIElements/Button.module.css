@@ -20,6 +20,11 @@
   border: 3px solid var(--blue);
 }
 
+.disabled {
+  color: lightgray;
+  border: 3px solid lightgray;
+}
+
 .button:focus {
   outline: none;
 }

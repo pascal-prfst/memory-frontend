@@ -8,9 +8,10 @@ import { createGameField, checkCardsForMatch } from "../../utils/helper-function
 type FieldProps = {
   fieldSize: string;
   checkForFinishedGame: (memoryData: MemoryData[]) => void;
+  active: boolean;
 };
 
-function MemoryField({ fieldSize, checkForFinishedGame }: FieldProps) {
+function MemoryField({ fieldSize, checkForFinishedGame, active }: FieldProps) {
   const [memoryCards, setMemoryCards] = useState<MemoryData[]>([]);
   const [failedMatch, setFailedMatch] = useState(false);
   const [lastSelectedCard, setLastSelectedCard] = useState("");
@@ -23,7 +24,6 @@ function MemoryField({ fieldSize, checkForFinishedGame }: FieldProps) {
   useEffect(() => {
     const memoryCards = createGameField(fieldSize);
     setMemoryCards(memoryCards);
-    console.log("Test");
   }, [fieldSize]);
 
   useEffect(() => {
@@ -60,13 +60,15 @@ function MemoryField({ fieldSize, checkForFinishedGame }: FieldProps) {
   }, [memoryCards]);
 
   function cardClickHandler(id: string) {
-    setFailedMatch(false);
-    setLastSelectedCard(id);
-    setMemoryCards(prevCards =>
-      prevCards.map(card => {
-        return card.id === id ? { ...card, selected: !card.selected } : { ...card };
-      })
-    );
+    if (active) {
+      setFailedMatch(false);
+      setLastSelectedCard(id);
+      setMemoryCards(prevCards =>
+        prevCards.map(card => {
+          return card.id === id ? { ...card, selected: !card.selected } : { ...card };
+        })
+      );
+    }
   }
 
   return (
@@ -74,6 +76,7 @@ function MemoryField({ fieldSize, checkForFinishedGame }: FieldProps) {
       {memoryCards.map((data, index) => {
         return (
           <MemoryCard
+            active={active}
             key={index}
             id={data.id}
             image={data.image}

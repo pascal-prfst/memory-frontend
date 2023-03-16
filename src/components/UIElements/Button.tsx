@@ -9,9 +9,15 @@ type ButtonProps = {
   inverted?: true;
   className?: string;
   type?: string;
+  disabled?: boolean;
 };
 
-function Button({ children, to, onClick, inverted }: ButtonProps) {
+function Button({ children, to, onClick, inverted, disabled }: ButtonProps) {
+  const disabledStyle = {
+    color: disabled ? "lightgray" : "",
+    border: disabled ? "3px solid lightgray" : "",
+  };
+
   if (to) {
     return (
       <Link className={`${classes.button} ${inverted && classes.inverted} ${classes.link}`} to={to}>
@@ -21,7 +27,11 @@ function Button({ children, to, onClick, inverted }: ButtonProps) {
   }
 
   return (
-    <button onClick={onClick} className={`${classes.button} ${inverted && classes.inverted}`}>
+    <button
+      style={disabledStyle}
+      onClick={onClick}
+      disabled={disabled}
+      className={`${classes.button}  ${inverted && classes.inverted}`}>
       {children}
     </button>
   );

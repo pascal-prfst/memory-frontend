@@ -8,9 +8,10 @@ interface MemoryCardProps {
   title: string;
   image: string;
   match: boolean;
-  clickHandler: any;
+  clickHandler: (id: string) => void;
   failedMatch: boolean;
   selected: boolean;
+  active: boolean;
 }
 
 function MemoryCard({
@@ -21,11 +22,14 @@ function MemoryCard({
   match,
   failedMatch,
   selected,
+  active,
 }: MemoryCardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
 
   function handleCardFlip() {
-    setIsFlipped(prev => !prev);
+    if (active) {
+      setIsFlipped(prev => !prev);
+    }
   }
 
   useEffect(() => {

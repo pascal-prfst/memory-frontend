@@ -4,6 +4,7 @@ import { AiOutlineCloseCircle } from "react-icons/ai";
 import classes from "./Modal.module.css";
 import { convertSecondsToMinutes } from "../../utils/helper-functions";
 import Button from "../UIElements/Button";
+import { RingLoader } from "react-spinners";
 
 type ModalProps = {
   closeModal: () => void;
@@ -15,6 +16,8 @@ function Modal({ closeModal, time, fieldSize }: ModalProps) {
   const [personalRecord, setPersonalRecord] = useState(0);
   const [newRecord, setNewRecord] = useState(false);
   const [isLoading, setIsLoading] = useState(false);
+  const [inputName, setInputName] = useState("");
+  const [succesfulSubmit, setSuccesfulSubmit] = useState(false);
 
   useEffect(() => {
     if (localStorage.getItem(`personal-record-${fieldSize}`) === null) {
@@ -35,8 +38,9 @@ function Modal({ closeModal, time, fieldSize }: ModalProps) {
 
   async function handleSubmit(event: any) {
     event.preventDefault();
-    const scoreData = { name: "Pascal", time: time, fieldSize: fieldSize };
+    const scoreData = { name: inputName, time: time, fieldSize: fieldSize };
     try {
+      setIsLoading(true);
       const response = await fetch("https://memory-backend-phi.vercel.app/api/score", {
         method: "POST",
         body: JSON.stringify(scoreData),
@@ -44,9 +48,17 @@ function Modal({ closeModal, time, fieldSize }: ModalProps) {
           "Content-Type": "application/json",
         },
       });
+      if (response.ok) {
+        setIsLoading(false);
+        setSuccesfulSubmit(true);
+      }
     } catch (err) {
       console.log(err);
     }
+  }
+
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setInputName(event.target.value);
   }
 
   return (
@@ -58,11 +70,33 @@ function Modal({ closeModal, time, fieldSize }: ModalProps) {
           <p>Du hast einen neuen Rekord gebrochen!</p> <p>Deine Zeit ist:</p>
           <div className={classes.time}>{convertSecondsToMinutes(personalRecord)}</div>
           <form onSubmit={handleSubmit}>
-            <label htmlFor="name">Trage deinen Namen in die Rangliste ein:</label>
-            <input type="text" id="name" />
-            <Button inverted type="submit">
-              SENDEN
-            </Button>
+            {!isLoading && !succesfulSubmit && (
+              <>
+                <label htmlFor="name">
+                  Trage deinen Namen (min: 5 Zeichen) in die Rangliste ein:
+                </label>
+                <input type="text" id="name" value={inputName} onChange={handleChange} />
+                <Button inverted disabled={inputName.length <= 4} type="submit">
+                  SENDEN
+                </Button>{" "}
+              </>
+            )}
+
+            {isLoading && <RingLoader size={140} color={"var(--blue)"} />}
+
+            {!isLoading && succesfulSubmit && (
+              <>
+                <p>Erfolgreich in die Rangliste eingetragen!</p>
+                <div className={classes.action_container}>
+                  <Button inverted onClick={closeModal}>
+                    Neues Spiel
+                  </Button>
+                  <Button inverted to="/score">
+                    Rangliste
+                  </Button>
+                </div>
+              </>
+            )}
           </form>
         </>
       )}

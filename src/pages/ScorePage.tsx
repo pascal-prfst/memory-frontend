@@ -3,9 +3,9 @@ import { RingLoader } from "react-spinners";
 
 import classes from "./ScorePage.module.css";
 import Button from "../components/UIElements/Button";
-import { convertSecondsToMinutes } from "../utils/helper-functions";
+import Pagination from "../components/UIElements/Pagination";
 
-type ScoreType = {
+export type ScoreType = {
   name: string;
   time: number;
   fieldSize: string;
@@ -51,23 +51,7 @@ function ScorePage() {
       </div>
       <div className={classes.scoreboard}>
         {isLoading && <RingLoader size={100} color={"#fff"} className={classes.spinner} />}
-        {scoreData && !isLoading && (
-          <ul>
-            {scoreData &&
-              scoreData.map((data, index) => {
-                return (
-                  <li key={index}>
-                    <div className={classes.score_entry}>
-                      <p>
-                        {index + 1}. {data.name}
-                      </p>
-                      <p>{convertSecondsToMinutes(data.time)}</p>
-                    </div>
-                  </li>
-                );
-              })}
-          </ul>
-        )}
+        {scoreData && !isLoading && <Pagination itemsPerPage={7} items={scoreData} />}
       </div>
       <div className={classes.actions_container}>
         <Button to="/memory">NEUES SPIEL</Button>

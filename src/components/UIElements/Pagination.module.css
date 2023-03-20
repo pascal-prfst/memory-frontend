@@ -1,0 +1,38 @@
+.score_content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+.score_entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.score_entry p {
+  font-size: 2.25rem;
+}
+
+.pagination_container {
+  display: flex;
+  justify-content: center;
+  font-size: 1.75rem;
+  gap: 1.25rem;
+}
+
+.pagination_container a:hover {
+  cursor: pointer;
+}
+
+@media (max-width: 640px) {
+  .score_entry p {
+    font-size: 1.5rem;
+  }
+
+  .pagination_container {
+    font-size: 1.25rem;
+  }
+}

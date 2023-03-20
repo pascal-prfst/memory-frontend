@@ -38,17 +38,6 @@
   list-style: none;
 }
 
-.score_entry {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-bottom: 0.75rem;
-}
-
-.score_entry p {
-  font-size: 2.25rem;
-}
-
 .actions_container {
   display: flex;
   justify-content: center;
@@ -67,15 +56,6 @@
   .scoreboard {
     min-width: 100%;
     padding: 2rem;
-  }
-
-  .score_entry {
-    font-size: 1rem;
-    margin-bottom: 0.5rem;
-  }
-
-  .score_entry p {
-    font-size: 1.5rem;
   }
 
   .actions_container {

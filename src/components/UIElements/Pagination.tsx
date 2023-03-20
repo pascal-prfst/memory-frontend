@@ -18,7 +18,7 @@ function ItemList({ scoreData }: ItemListProps) {
             <li key={index}>
               <div className={classes.score_entry}>
                 <p>
-                  {index + 1}. {data.name}
+                  {data.spot}. {data.name}
                 </p>
                 <p>{convertSecondsToMinutes(data.time)}</p>
               </div>

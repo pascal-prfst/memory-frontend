@@ -6,6 +6,7 @@ import Button from "../components/UIElements/Button";
 import Pagination from "../components/UIElements/Pagination";
 
 export type ScoreType = {
+  spot?: number;
   name: string;
   time: number;
   fieldSize: string;
@@ -25,7 +26,10 @@ function ScorePage() {
         const filteredData = data.score
           .filter((score: ScoreType) => score.fieldSize === filterOptions)
           .sort((a: ScoreType, b: ScoreType) => (a.time < b.time ? -1 : 1));
-        setScoreDate(filteredData);
+        const scoreDataWithPlace = filteredData.map((data: ScoreType, index: number) => {
+          return { ...data, spot: index + 1 };
+        });
+        setScoreDate(scoreDataWithPlace);
         setIsLoading(false);
       } catch (err) {
         console.log(err);

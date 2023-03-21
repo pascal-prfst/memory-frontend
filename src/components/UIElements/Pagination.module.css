@@ -19,6 +19,7 @@
 .pagination_container {
   display: flex;
   justify-content: center;
+  align-items: center;
   font-size: 1.75rem;
   gap: 1.25rem;
 }
@@ -27,12 +28,22 @@
   cursor: pointer;
 }
 
+.active_page {
+  width: 2rem;
+  height: 2rem;
+  display: grid;
+  place-content: center;
+  color: var(--blue);
+  background-color: var(--white);
+  border-radius: 50%;
+}
+
 @media (max-width: 640px) {
   .score_entry p {
     font-size: 1.5rem;
   }
 
   .pagination_container {
-    font-size: 1.25rem;
+    font-size: 1.2rem;
   }
 }

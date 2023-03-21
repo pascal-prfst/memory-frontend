@@ -59,6 +59,11 @@
   margin-top: 2rem;
 }
 
+.loading_container {
+  display: grid;
+  place-content: center;
+}
+
 @media (max-width: 640px) {
   .modal {
     width: 85%;

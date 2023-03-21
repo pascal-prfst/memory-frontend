@@ -81,8 +81,9 @@ function Modal({ closeModal, time, fieldSize }: ModalProps) {
                 </Button>{" "}
               </>
             )}
-
-            {isLoading && <RingLoader size={140} color={"var(--blue)"} />}
+            <div className={classes.loading_container}>
+              {isLoading && <RingLoader size={140} color={"var(--blue)"} />}
+            </div>
 
             {!isLoading && succesfulSubmit && (
               <>
@@ -107,7 +108,9 @@ function Modal({ closeModal, time, fieldSize }: ModalProps) {
           <span className={classes.time}>{convertSecondsToMinutes(time)}</span>
           <p>Deine beste Zeit ist:</p>
           <span className={classes.time}>
-            {convertSecondsToMinutes(Number(localStorage.getItem(`personal-record-${fieldSize}`)))}
+            {convertSecondsToMinutes(
+              Number(localStorage.getItem(`personal-record-${fieldSize}-final`))
+            )}
           </span>
           <div className={classes.action_container}>
             <Button inverted onClick={closeModal}>

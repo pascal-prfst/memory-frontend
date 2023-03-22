@@ -51,11 +51,12 @@ function Pagination({ itemsPerPage, items }: PaginationProps) {
       <ItemList scoreData={currentItems} />
       <ReactPaginate
         breakLabel="..."
-        nextLabel="VOR >"
+        nextLabel=">>"
         onPageChange={handlePageClick}
-        pageRangeDisplayed={4}
+        pageRangeDisplayed={1}
+        marginPagesDisplayed={1}
         pageCount={pageCount}
-        previousLabel="< ZURÜCK"
+        previousLabel="<<"
         className={classes.pagination_container}
         activeClassName={classes.active_page}
       />

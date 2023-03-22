@@ -40,11 +40,10 @@ function MemoryField({ fieldSize, checkForFinishedGame, active }: FieldProps) {
               return card.selected ? { ...card, match: true, selected: false } : card;
             })
           );
-        }, 300);
+        }, 225);
       }
       // picked cards are not equal
     } else if (filteredSelected.length === 3) {
-      console.log(lastSelectedCard);
       setFailedMatch(true);
       setMemoryCards(prevCards =>
         prevCards.map(card => {
@@ -65,7 +64,7 @@ function MemoryField({ fieldSize, checkForFinishedGame, active }: FieldProps) {
       setLastSelectedCard(id);
       setMemoryCards(prevCards =>
         prevCards.map(card => {
-          return card.id === id ? { ...card, selected: !card.selected } : { ...card };
+          return card.id === id ? { ...card, selected: true } : { ...card };
         })
       );
     }

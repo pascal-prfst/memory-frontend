@@ -28,7 +28,7 @@ function MemoryCard({
 
   function handleCardFlip() {
     if (active) {
-      setIsFlipped(prev => !prev);
+      setIsFlipped(true);
     }
   }
 
